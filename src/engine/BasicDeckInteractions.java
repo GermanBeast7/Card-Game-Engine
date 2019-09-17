@@ -4,7 +4,13 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 import engine.BasicCard.Suit;
-
+/**
+ * 
+ * @author Matthew Temniuk
+ * Created March 19, 2019
+ * 
+ * A class of deck interactions that are common with BasicCards in a deck
+ */
 public class BasicDeckInteractions {
 	
 	/**
@@ -47,12 +53,19 @@ public class BasicDeckInteractions {
 		}
 		return deck;
 	}
+	/**
+	 * Creates a shuffled Deck without Jokers
+	 * @return A shuffled Deck without Jokers
+	 */
 	public static Deck<BasicCard> createShuffledDeck(){
 		Deck<BasicCard> deck = createDeck();
 		deck.shuffle();
 		return deck;
 	}
-	
+	/**
+	 * 
+	 * @return A shuffled Deck with Jokers
+	 */
 	public static Deck<BasicCard> createDeckWithJokers(){
 		Deck<BasicCard> deck = createDeck();
 		deck.insert(new BasicCard(20 * 4, 20 * 4, Suit.JOKER), 20 * 4);//Joker 1
@@ -60,7 +73,10 @@ public class BasicDeckInteractions {
 		deck.shuffle();
 		return deck;
 	}
-	
+	/**
+	 * 
+	 * @return A shuffled Deck with Jokers and the Ace as the lowest value card
+	 */
 	public static Deck<BasicCard> createDeckWithJokersAndAceLowest(){
 		Deck<BasicCard> deck = createDeckWithAceAsLowest();
 		deck.insert(new BasicCard(20 * 4, 20 * 4, Suit.JOKER), 20 * 4);//Joker 1
@@ -68,7 +84,10 @@ public class BasicDeckInteractions {
 		deck.shuffle();
 		return deck;
 	}
-	
+	/**
+	 * 
+	 * @return A shuffled Deck with Jokers and the 3 as the lowest value card and the 2 as the highest
+	 */
 	public static Deck<BasicCard> createDeckWithJokersAndThreeAsLowest(){
 		Deck<BasicCard> deck = createDeckWithThreeAsLowest();
 		deck.insert(new BasicCard(20 * 4, 20 * 4, Suit.JOKER), 20 * 4);//Joker 1
@@ -119,7 +138,7 @@ public class BasicDeckInteractions {
 	}
 	/**
 	 * Deck with Ace as lowest
-	 * @return
+	 * @return Deck with Ace as lowest
 	 */
 	public static Deck<BasicCard> createDeckWithAceAsLowest(){
 		Suit suit =  Suit.DIAMONDS;
@@ -159,8 +178,8 @@ public class BasicDeckInteractions {
 	/**
 	 * Deals the deck until no cards are left in the deck.
 	 * 
-	 * @param deck
-	 * @param hands
+	 * @param deck The deck used to deal to the hands
+	 * @param hands An ArrayList of hands that the deck will add to
 	 */
 	public static void deal(Deck<BasicCard> deck, ArrayList<Hand<BasicCard>> hands) {
 		while(!deck.isEmpty()) {
@@ -178,9 +197,9 @@ public class BasicDeckInteractions {
 	/**
 	 * Deals cards to the hands of players until each hand has numberToGive cards in hand.
 	 * 
-	 * @param deck
-	 * @param hands
-	 * @param numberToGive
+	 * @param deck The deck used to deal to the hands
+	 * @param hands An ArrayList of hands that the deck will add to
+	 * @param numberToGive Total number of cards to give to each player as long as the deck does not run out of cards
 	 */
 	public static void deal(Deck<BasicCard> deck,ArrayList<Hand<BasicCard>> hands, int numberToGive) {
 		for(int count = 0; (count < numberToGive) && (!deck.isEmpty());count++) {
@@ -192,11 +211,7 @@ public class BasicDeckInteractions {
 					iterator.next();
 				}
 			}
-			/*for(int index = 0; index < hands.length; index++) {
-				if (hands[index]!=null) {
-					hands[index].add(deck.draw());
-				}
-			}*/
+			
 		}
 	}
 	

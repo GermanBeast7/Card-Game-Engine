@@ -8,7 +8,12 @@ package engine;
  * A standard card to be used in a basic card game.
  */
 public class BasicCard implements CardADT,Comparable<BasicCard> {
-	
+	/**
+	 * Enumeration to represent the Suit of a standard card
+	 * 
+	 * @author Matthew Temniuk
+	 *
+	 */
 	public static enum Suit{
 		DIAMONDS("Diamonds"), 
 		HEARTS("Hearts"),
@@ -18,10 +23,17 @@ public class BasicCard implements CardADT,Comparable<BasicCard> {
 		
 		
 		private String value;
-		
+		/**
+		 * Constructor for the Suit to set the value.
+		 * @param value value to set as the Suit
+		 */
 		private Suit(String value) {
 			this.value = value;
 		}
+		/**
+		 * Returns the string value of the Suit.
+		 * @return The string representation of the Suit
+		 */
 		public String getValue() {
 			return value;
 		}
@@ -36,7 +48,13 @@ public class BasicCard implements CardADT,Comparable<BasicCard> {
 	private Suit cardSuit;
 	
 	private String imageFileName;
-	
+	/**
+	 * Constructor to create a BasicCard, takes value, ID, and suit to create the card and generate the base image file name
+	 * 
+	 * @param value Number value of the card.
+	 * @param ID  User given int to differentiate cards from one another.
+	 * @param suit Suit of the Card.
+	 */
 	public BasicCard(int value, int ID, Suit suit) {
 		cardValue = value;
 		cardID = ID;
@@ -57,12 +75,13 @@ public class BasicCard implements CardADT,Comparable<BasicCard> {
 		
 	}
 	/**
-	 * Initializes a card with a value that can be different than the one in the card name
+	 * Initializes a card with a value that can be different than the one in the card name. Also gives option to have a different image file
 	 * 
 	 * @param value
 	 * @param ID
 	 * @param suit
 	 * @param cardName
+	 * @param imageFile Image file to use to represent the card
 	 */
 	public BasicCard(int value, int ID,Suit suit, String cardName, String imageFile) {
 		cardValue = value;
@@ -83,6 +102,9 @@ public class BasicCard implements CardADT,Comparable<BasicCard> {
 	public Suit getSuit() {
 		return cardSuit;
 	}
+	/**
+	 * Returns the image filename
+	 */
 	public String getImage() {
 		return imageFileName;
 	}

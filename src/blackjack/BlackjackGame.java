@@ -20,6 +20,12 @@ import javax.swing.JPanel;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
+/**
+ * 
+ * @author Matthew Temniuk
+ *
+ * A demonstration of the card game engine with a text based Blackjack game
+ */
 public class BlackjackGame {
 
 	
@@ -209,6 +215,8 @@ public class BlackjackGame {
 					break;
 					
 				} 
+				
+			}if(addValues(dealerHand) > 21 && addValues(playerHand) <= 21) {
 				// Case where dealer busts but Player did not
 				System.out.println("Player Wins!");
 			}

@@ -48,11 +48,11 @@ public class Deck<T> {
 		}
 		
 		T[] deck = (T[]) (new Object[size]);
-		//DLNode<T> current = front;
+		
 		
 		for(int index = 0; index < size; index++) {
 			deck[index] = draw();
-			//current = current.getNext();
+			
 		}
 		
 		Random rand = new Random(System.currentTimeMillis()); 
@@ -72,36 +72,13 @@ public class Deck<T> {
         Deck<T> shuffledDeck = new Deck<T>(); 
         
         for(int index = 0; index < size; index++) {
-        	//shuffledDeck.insert(deck[index]);
+        	
         	shuffledDeck.insert(deck[index], index);
         }
         
        this.front = shuffledDeck.front;
        this.rear = shuffledDeck.rear;
 	}
-	
-	/**
-	 * Helper method of shuffle() to insert nodes in an array to the end of the list and order them the same way 
-	 * as the list. 
-	 * 
-	 * @param newNode The node to add to the end of the list
-	 */
-	/*private void insert(DLNode<T> newNode) {
-		if (isEmpty()) {
-			front = newNode;
-			front.setNext(null);
-			front.setPrevious(null);
-			
-		}else {
-			rear.setNext(newNode);
-			newNode.setPrevious(rear);
-			newNode.setNext(null);
-			
-		}
-		rear = newNode;
-		size++;
-		
-	}*/
 	
 	/**
 	 * Adds a new node with dataItem and value to the end of the list. 

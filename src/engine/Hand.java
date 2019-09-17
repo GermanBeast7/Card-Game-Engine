@@ -20,7 +20,9 @@ public class Hand<T> extends ArrayList<T> implements OrderedListADT<T> {
 	}
 
 
-	
+	/**
+	 * Function to add a card in the correct order to the hand
+	 */
 	public void add(T element) {
 		if (size() == list.length) {
 			 expandCapacity();

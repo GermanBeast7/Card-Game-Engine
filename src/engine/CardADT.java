@@ -10,7 +10,10 @@ public interface CardADT {
 	public int getValue();
 	
 	public int getID();
-	
+	/**
+	 * 
+	 * @return String of the image file to represent a card
+	 */
 	public String getImage();
 	
 	public String toString();
