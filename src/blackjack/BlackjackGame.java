@@ -97,7 +97,7 @@ public class BlackjackGame {
 			}
 			
 			boolean stand = false;
-			while(stand != true || addValues(playerHand) < 21) {
+			while(stand != true && addValues(playerHand) < 21) {
 				System.out.println("Player: \n" + playerHand.toString());
 				System.out.println("Dealer: \n" + dealerHand.toString());
 				
