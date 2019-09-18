@@ -143,6 +143,9 @@ public class BlackjackGame {
 						
 					}
 				}
+				if (quit == true) {
+					break;
+				}
 			}
 			if(stand != true) {
 				findWinner(playerHand,dealerHand);
